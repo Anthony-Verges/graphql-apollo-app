@@ -24,12 +24,23 @@ const SpaceXCard = () => {
 
   return data.launches.map((launch) => {
     return (
-      <div key={launch.details}>
+      <div
+        key={launch.details}
+        style={{
+          border: "3px solid #382d1c",
+          width: "40rem",
+          margin: "auto",
+          marginBottom: "3rem",
+          paddingBottom: "1rem",
+        }}
+      >
         <h3>{launch.launch_date_utc}</h3>
-        <h4>{launch.launch_success}</h4>
+        <h4>
+          La missions est-elle un succé : {launch.launch_success.toString()}
+        </h4>
         <h4>{launch.rocket.rocket_name}</h4>
         <p>{launch.details}</p>
-        <p>{launch.links.video_link}</p>
+        <a href="{launch.links.video_link}">{launch.links.video_link}</a>
       </div>
     );
   });
